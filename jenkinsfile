@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        DOCKER_IMAGE = "swapnilbp/fastapi-app"
+    }
     stages {
         stage("SCM Checkout") {
              steps {
