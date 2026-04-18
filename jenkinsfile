@@ -15,7 +15,7 @@ pipeline {
        }
        stage("Tag Image") {
         steps {
-            sh 'docker tag fastapi-app swapnilbp/fastapi:latest'
+            sh 'docker tag fastapi-app swapnilbp/fastapi-app:latest'
         }
        }
       stage('Push to DockerHub') { 
