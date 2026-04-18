@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+    stages{
+        stage("SCM Checkout")
+             steps{
+            branch "main", url:"https://github.com/swapnilbp31/docker-fastapi-test.git"
+        }
+       stage("Build Docker Image")
+       steps{
+         script{
+           docker.build("fastapi-app")
+         }
+       }
+    }stage("Creat and Runthe Container")
+    steps{
+        script{
+            sh '''
+                docker stop fastapi-container || true
+                docker rm fastapi-container || true
+                docker run -d -p 8000:8000 --name fastapi-container fastapi-app
+               '''
+        }
+    }
+}
