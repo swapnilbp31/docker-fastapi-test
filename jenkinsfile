@@ -14,7 +14,7 @@ pipeline {
        }
        }
      
-       stage("Create and Run the Container") {
+       stage("Run the Container") {
          steps {
          script {
             sh '''
